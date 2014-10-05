@@ -4,16 +4,15 @@
 
 <?php
 
-require dirname(__FILE__) . '/Nette/Debugger.php';
-require dirname(__FILE__) . '/../dibi/dibi.php';
+require __DIR__ . '/../dibi/dibi.php';
 
 
 // connects to SQlite using dibi class
 echo '<p>Connecting to Sqlite: ';
 try {
 	dibi::connect(array(
-		'driver'   => 'sqlite',
-		'database' => 'data/sample.sdb',
+		'driver'   => 'sqlite3',
+		'database' => 'data/sample.s3db',
 	));
 	echo 'OK';
 
@@ -27,8 +26,8 @@ echo "</p>\n";
 echo '<p>Connecting to Sqlite: ';
 try {
 	$connection = new DibiConnection(array(
-		'driver'   => 'sqlite',
-		'database' => 'data/sample.sdb',
+		'driver'   => 'sqlite3',
+		'database' => 'data/sample.s3db',
 	));
 	echo 'OK';
 
@@ -79,7 +78,7 @@ try {
 		'driver'   => 'odbc',
 		'username' => 'root',
 		'password' => '***',
-		'dsn'      => 'Driver={Microsoft Access Driver (*.mdb)};Dbq='.dirname(__FILE__).'/data/sample.mdb',
+		'dsn'      => 'Driver={Microsoft Access Driver (*.mdb)};Dbq='.__DIR__.'/data/sample.mdb',
 	));
 	echo 'OK';
 
